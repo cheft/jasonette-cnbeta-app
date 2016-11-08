@@ -1,0 +1,75 @@
+{
+  "$jason": {
+    "head": {
+      "title": "CnBeta",
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "http://cnbeta1.com/api/getArticleDetail/{{$params.aid}}"
+          },
+          "success": {
+            "type": "$render"
+          }
+        },
+        "$foreground": {
+          "type": "$reload"
+        },
+        "$pull": {
+          "type": "$reload"
+        }
+      },
+      "templates": {
+        "body": {
+          "style": {
+            "border": "none"
+          },
+          "header": {
+            "title": {
+              "type": "image",
+              "url": "http://www.cnbeta.com/assets/default/images/logo.png",
+              "style": {
+                "width": "93",
+                "height": "23"
+              }
+            },
+            "style": {
+              "color": "#000000",
+              "background": "#FFFFFF"
+            }
+          },
+          "sections": [
+            {
+              "items": [
+                {
+                  "type": "vertical",
+                  "style": {
+                    "padding": "10",
+                    "spacing": "10",
+                    "align": "center"
+                  },
+                  "components": [
+                    {
+                      "type": "label",
+                      "text": "{{$jason.title}}",
+                      "style": {
+                        "align": "center",
+                        "font": "Courier-Bold",
+                        "size": "18"
+                      }
+                    },
+                    {
+                      "type": "html",
+                      "text": "{{$jason.content}}",
+                      "css": "body{font-family: Courier; font-size: 18px;} img{max-width: 100%;}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

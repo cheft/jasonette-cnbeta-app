@@ -1,0 +1,166 @@
+{
+  "$jason": {
+    "head": {
+      "title": "CnBeta",
+      "actions": {
+        "$load": {
+          "type": "$network.request",
+          "options": {
+            "url": "http://cnbeta1.com/api/getArticles"
+          },
+          "success": {
+            "type": "$render"
+          }
+        },
+        "$foreground": {
+          "type": "$reload"
+        },
+        "$pull": {
+          "type": "$reload"
+        }
+      },
+      "templates": {
+        "body": {
+          "style": {
+            "border": "none"
+          },
+          "header": {
+            "title": {
+              "type": "image",
+              "url": "http://www.cnbeta.com/assets/default/images/logo.png",
+              "style": {
+                "width": "93",
+                "height": "23"
+              }
+            },
+            "style": {
+              "color": "#000000",
+              "background": "#FFFFFF"
+            }
+          },
+          "sections": [
+            {
+              "items": {
+                "{{#each $jason}}": {
+                  "type": "horizontal",
+                  "style": {
+                    "spacing": "10"
+                  },
+                  "href": {
+                    "url": "https://raw.githubusercontent.com/cheft/jasonette-cnbeta-app/master/detail.json",
+                    "options": {
+                      "aid": "{{article_id}}"
+                    }
+                  },
+                  "components": [
+                    {
+                      "type": "image",
+                      "url": "{{topic}}",
+                      "style": {
+                        "width": "48",
+                        "height": "48",
+                        "corner_radius": "5"
+                      }
+                    },
+                    {
+                      "type": "vertical",
+                      "style": {
+                        "spacing": "5"
+                      },
+                      "components": [
+                        {
+                          "type": "horizontal",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "{{source}}",
+                              "style": {
+                                "font": "HelveticaNeue",
+                                "width": "100",
+                                "size": "14"
+                              }
+                            },
+                            {
+                              "type": "label",
+                              "text": "发布于 {{date}}",
+                              "style": {
+                                "align": "right",
+                                "color": "#8899a6",
+                                "size": "13",
+                                "font": "HelveticaNeue"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "label",
+                          "text": "{{title}}",
+                          "style": {
+                            "font": "HelveticaNeue-Bold",
+                            "size": "18"
+                          }
+                        },
+                        {
+                          "type": "label",
+                          "text": "        {{intro}}",
+                          "style": {
+                            "width": "100%",
+                            "corner_radius": "5"
+                          }
+                        },
+                        {
+                          "type": "horizontal",
+                          "style": {
+                            "padding_top": "10"
+                          },
+                          "components": [
+                            {
+                              "type": "label",
+                              "style": {
+                                "color": "#AAB8C2"
+                              },
+                              "text": "{{pushed}} 推荐"
+                            },
+                            {
+                              "type": "space",
+                              "style": {
+                                "width": "20"
+                              }
+                            },
+                            {
+                              "type": "label",
+                              "style": {
+                                "color": "#AAB8C2"
+                              },
+                              "text": "{{view_num}} 阅读"
+                            },
+                            {
+                              "type": "space",
+                              "style": {
+                                "width": "20"
+                              }
+                            },
+                            {
+                              "type": "label",
+                              "style": {
+                                "color": "#AAB8C2"
+                              },
+                              "text": "{{hot}} 热度"
+                            },
+                            {
+                              "type": "space"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
