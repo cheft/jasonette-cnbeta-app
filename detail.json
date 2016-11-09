@@ -53,15 +53,16 @@
                       "type": "label",
                       "text": "{{$jason.title}}",
                       "style": {
+                        "color": "#036",
                         "align": "center",
                         "font": "Courier-Bold",
-                        "size": "18"
+                        "size": "20"
                       }
                     },
                     {
                       "type": "html",
-                      "text": "{{$jason.content}}",
-                      "css": "body{font-family: Courier; font-size: 18px;} img{max-width: 100%;}"
+                      "text": "{{$jason.content.replace('<p><strong>[广告]活动入口:</strong></p>', '').replace('<p><a target=\"_blank\" href=\"https://www.itiger.com/market/201602?invite=cnbeta01\">买美股，上老虎 - 超低佣金，每股只需1美分</a></p>', '')}}",
+                      "css": "body{font-family: Courier; font-size: 16px;line-height: 26px;} img{max-width: 100%;}"
                     }
                   ]
                 }

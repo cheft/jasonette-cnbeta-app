@@ -46,10 +46,13 @@
                   "style": {
                     "spacing": "10"
                   },
-                  "href": {
-                    "url": "https://raw.githubusercontent.com/cheft/jasonette-cnbeta-app/master/detail.json",
+                  "action": {
+                    "type": "$href",
                     "options": {
-                      "aid": "{{article_id}}"
+                      "url": "https://raw.githubusercontent.com/cheft/jasonette-cnbeta-app/master/detail.json",
+                      "options": {
+                        "aid": "{{article_id}}"
+                      }
                     }
                   },
                   "components": [
@@ -57,9 +60,10 @@
                       "type": "image",
                       "url": "{{topic}}",
                       "style": {
-                        "width": "48",
-                        "height": "48",
-                        "corner_radius": "5"
+                        "width": "60",
+                        "height": "60",
+                        "background": "#E7EAEB",
+                        "corner_radius": "30",
                       }
                     },
                     {
@@ -75,6 +79,7 @@
                               "type": "label",
                               "text": "{{source}}",
                               "style": {
+                                "color": "#417daf",
                                 "font": "HelveticaNeue",
                                 "width": "100",
                                 "size": "14"
@@ -96,16 +101,16 @@
                           "type": "label",
                           "text": "{{title}}",
                           "style": {
+                            "color": "#036",
                             "font": "HelveticaNeue-Bold",
-                            "size": "18"
+                            "size": "16"
                           }
                         },
                         {
                           "type": "label",
                           "text": "        {{intro}}",
                           "style": {
-                            "width": "100%",
-                            "corner_radius": "5"
+                            "color": "#333"
                           }
                         },
                         {
